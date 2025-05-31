@@ -7,7 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import './GamePage.css';
 
-const socket = io('http://localhost:4000');
+const socket = io(
+  process.env.NODE_ENV === 'production'
+    ? undefined // Uses the same domain in production (Render)
+    : 'http://localhost:4000' // Dev mode uses local server
+);
 
 function GamePage() {
   const [roomId, setRoomId] = useState('');
