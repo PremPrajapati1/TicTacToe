@@ -1,0 +1,74 @@
+.gamepage-container {
+  text-align: center;
+  position: relative;
+  height: auto;
+  width: 100vw;
+  padding-top: 60px;
+}
+
+.heading{
+  font-size: 1.7rem;
+  font-weight: lighter;
+  font-family:Eaglore;
+  color: var(--white--color);
+  margin-bottom: 50px;
+}
+.Game_heading{
+  display: block;
+}
+
+.gamepage-button1 {
+  font-size: 50px;
+  color: var(--white--color);
+  cursor: pointer;
+  /* transition: background-color 0.2s ease; */
+  z-index: 10;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.gamepage-button1:hover {
+  opacity: 50%;
+}
+
+.gamepage-button2 {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: var(--white--color);
+  border: 1px solid var(--white--color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.gamepage-button2:hover {
+  background-color: var(--white--color);
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.music-toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media screen and (max-width:1300px) {
+.gamepage-container {
+  padding-top: 40px;
+}
+.gamepage-button1 {
+  font-size: 45px;
+}
+}
+@media screen and (max-width:360px) {
+  .gamepage-container {
+  padding-top: 70px;
+}
+}

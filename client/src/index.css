@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "SuperPixel";
+    src: local("SuperPixel"), url(./Fonts/SuperPixel-m2L8j.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Debug";
+    src: local("Debug"), url(./Fonts/DebugFreeTrial-MVdYB.otf) format("truetype");
+
+}
+@font-face {
+    font-family: "spaceNova";
+    src: local("spaceNova"), url(./Fonts/SpaceNova-6Rpd1.otf) format("truetype");
+
+}
+@font-face {
+    font-family: "classic_arcade";
+    src: local("classic_arcade"), url(./Fonts/ARCADECLASSIC.TTF) format("truetype");
+
+}
+@font-face {
+    font-family: "modernWarfare";
+    src: local("modernWarfare"), url(./Fonts/ModernWarfare-OV7KP.ttf) format("truetype");
+
+}
+@font-face {
+    font-family: "plaguard";
+    src: local("plaguard"), url(./Fonts/Plaguard-ZVnjx.otf) format("truetype");
+
+}
+@font-face {
+    font-family: "Eaglore";
+    src: local("Eaglore"), url(./Fonts/EagloreCondensed-ARqBp.otf) format("truetype");
+
+}
+@font-face {
+    font-family: "Gardion";
+    src: local("Gardion"), url(./Fonts/GardionDemo-rveyK.otf) format("truetype");
+
+}
+@font-face {
+    font-family: "striger";
+    src: local("striger"), url(./Fonts/Striger-YzoJ8.otf) format("truetype");
+
+}
+@font-face {
+    font-family: "Basote";
+    src: local("Basote"), url(./Fonts/BasoteRegular-9MGxj.ttf) format("truetype");
+
+}

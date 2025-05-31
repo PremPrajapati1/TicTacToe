@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary--color: #367589;
+  --secondary--color: #1fa2a5;
+  --light--purplecolor: #12123e;
+  --blue--color: #007bff;
+  --ocean_blue--color:#085589;
+  --ocean_darkBlue--color:#073b5e;
+  --dark_blue--color: #262946;
+  --green--color: #658636;
+  --dark_green--color: #2c4c0d;
+  --white--color: white;
+  --cream--color: rgba(227, 213, 202, 0.95);
+  --light_cream--color: #edede9;
+  --black--color: black;
+  --yellow--color:#FFFF00;
+  --dark_orange--color:#d13007;
+  --red--color:red;
+  --transparent--color:rgba(255, 255, 255, 0.05);
+}
+#container{
+  height: 100vh;
+  width: 100vw;
+  background-image: url(bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

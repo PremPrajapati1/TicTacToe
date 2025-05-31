@@ -1,0 +1,268 @@
+/* HomePage.css */
+.homepage-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.homepage_heading {
+  font-size: 8rem;
+  font-family:classic_arcade;
+  color: var(--white--color);
+  background-color: transparent;
+  /* text-shadow: */
+    /* -4px -4px 0 var(--black--color), */
+    /* top-left */
+    /* 4px -4px 0 var(--black--color), */
+    /* top-right */
+    /* -4px 4px 0 var(--black--color), */
+    /* bottom-left */
+    /* 4px 4px 0 var(--black--color); */
+  /* bottom-right */
+}
+
+.sub_heading {
+  font-size: 10rem;
+  font-family: Basote;
+  color: var(--yellow--color);
+  /* text-shadow: */
+    /* -4px -4px 0 var(--black--color), */
+    /* top-left */
+    /* 4px -4px 0 var(--black--color), */
+    /* top-right */
+    /* -4px 4px 0 var(--black--color), */
+    /* bottom-left */
+    /* 4px 4px 0 var(--black--color); */
+  /* bottom-right */
+}
+
+
+.homepage_para {
+  font-size: 1.2rem;
+  color: var(--white--color);
+  font-family: Basote;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+
+.homepage-button {
+  height: 70px;
+  width: 300px;
+  background-color: var(--green--color);
+  color: var(--white--color);
+  font-size: 1.2rem;
+  font-family: spaceNova;
+  font-weight: lighter;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-button:hover {
+  border: 5px solid var(--green--color);
+  background-color: var(--white--color);
+  color: var(--green--color);
+  font-size: 1.3rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* media_queries */
+@media screen and (max-width:1300px) {
+  .homepage_heading {
+    font-size: 7.5rem;
+  }
+
+  .sub_heading {
+    font-size: 9.5rem;
+
+  }
+
+  .homepage_para {
+    font-size: 1.1rem;
+  }
+
+  .homepage-button {
+    height: 70px;
+    width: 260px;
+    font-size: 1.1rem;
+  }
+
+  .homepage-button:hover {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+}
+
+@media screen and (max-width:768px) {
+
+  .homepage_heading {
+    font-size: 7rem;
+  }
+
+  .sub_heading {
+    font-size: 9rem;
+
+  }
+
+  .homepage_para {
+    font-size: 1rem;
+  }
+
+  .homepage-button {
+    width: 250px;
+  }
+
+}
+
+@media screen and (max-width:654px) {
+
+  .homepage_heading {
+    font-size: 5.8rem;
+  }
+
+  .sub_heading {
+    font-size: 7.8rem;
+
+  }
+
+  .homepage_para {
+    font-size: 0.9rem;
+  }
+
+  .homepage-button {
+    font-size: 1rem;
+  }
+
+  .homepage-button:hover {
+  font-size: 1.1rem;
+}
+
+}
+
+@media screen and (max-width:607px) {
+
+  .homepage_heading {
+    font-size: 6rem;
+  }
+
+  .sub_heading {
+    font-size: 8rem;
+
+  }
+
+  .homepage_para {
+    font-size: 0.8rem;
+  }
+
+  .homepage-button {
+    height: 65px;
+    width: 200px;
+    font-size: 0.9rem;
+  }
+    .homepage-button:hover {
+  font-size: 1rem;
+}
+
+}
+
+@media screen and (max-width:570px) {
+
+  .homepage_heading {
+    font-size: 4.5rem;
+  }
+
+  .sub_heading {
+    font-size: 6.5rem;
+
+  }
+
+  .homepage_para {
+    font-size: 0.7rem;
+  }
+
+  .homepage-button {
+    height: 60px;
+    width: 200px;
+    font-size: 0.8rem;
+  }
+    .homepage-button:hover {
+  font-size: 0.9rem;
+}
+
+}
+
+
+@media screen and (max-width:442px) {
+
+  .homepage_heading {
+    font-size: 3.5rem;
+  }
+
+  .sub_heading {
+    font-size: 5.5rem;
+
+  }
+
+  .homepage_para {
+    font-size: 0.6rem;
+  }
+
+  .homepage-button {
+    height: 50px;
+    width: 170px;
+  }
+
+}
+
+@media screen and (max-width:375px) {
+
+  .homepage_heading {
+    font-size: 2.6rem;
+  }
+
+  .sub_heading {
+    font-size: 4.6rem;
+
+  }
+
+  .homepage_para {
+    font-size: 0.5rem;
+  }
+
+  .homepage-button {
+    height: 45px;
+    width: 150px;
+    font-size: 0.7rem;
+    
+  }
+
+    .homepage-button:hover {
+  font-size: 0.8rem;
+}
+
+}
+@media screen and (max-width:320px) {
+
+  .homepage_heading {
+    font-size: 2.4rem;
+  }
+
+  .sub_heading {
+    font-size: 4.4rem;
+
+  }
+
+  .homepage-button {
+    height: 40px;
+    width: 140px;
+  }
+
+}
