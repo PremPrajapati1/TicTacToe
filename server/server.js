@@ -17,13 +17,13 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(buildPath, 'index.html'));
 });
 
-// roomId -> { players: [{ id, symbol, username }], board: [], turn, winner }
+// Room state storage
 const rooms = {};
 
+// Socket.IO logic
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
-  // Create Room
   socket.on('createRoom', ({ username }) => {
     const roomId = Math.random().toString(36).substring(2, 7).toUpperCase();
     rooms[roomId] = {
@@ -37,7 +37,6 @@ io.on('connection', (socket) => {
     console.log(`${username} created room: ${roomId}`);
   });
 
-  // Join Room
   socket.on('joinRoom', ({ roomId, username }) => {
     const room = rooms[roomId];
     if (room) {
@@ -61,7 +60,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Handle player move
   socket.on('makeMove', ({ roomId, index, symbol }) => {
     const room = rooms[roomId];
     if (!room || room.winner) return;
@@ -79,7 +77,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Handle chat
   socket.on('sendMessage', ({ roomId, message, symbol, username }) => {
     const room = rooms[roomId];
     if (!room) return;
@@ -92,7 +89,6 @@ io.on('connection', (socket) => {
     });
   });
 
-  // Restart game
   socket.on('restartGame', ({ roomId }) => {
     const room = rooms[roomId];
     if (room) {
@@ -117,7 +113,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Handle disconnect
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
 
@@ -142,7 +137,7 @@ io.on('connection', (socket) => {
   });
 });
 
-// Helper to check winner
+// Helper to check for a winner
 function checkWinner(board) {
   const lines = [
     [0,1,2], [3,4,5], [6,7,8],
@@ -160,6 +155,7 @@ function checkWinner(board) {
   return null;
 }
 
+// Start server
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
