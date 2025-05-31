@@ -10,7 +10,7 @@ const io = new Server(server, {
 });
 
 // Serve React build static files
-const buildPath = path.join(__dirname, '..', 'client', 'build');
+const buildPath = path.join(__dirname, 'client', 'build');
 app.use(express.static(buildPath));
 
 app.get('*', (req, res) => {
