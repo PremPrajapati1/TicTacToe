@@ -10,7 +10,7 @@ const io = new Server(server, {
 });
 
 // Serve React build static files
-const buildPath = path.join(__dirname, 'client', 'build');
+const buildPath = path.join(__dirname, '..', 'client', 'build');
 app.use(express.static(buildPath));
 
 app.get('*', (req, res) => {
@@ -22,7 +22,7 @@ const rooms = {};
 
 // Socket.IO logic
 io.on('connection', (socket) => {
-  console.log('User connected:', socket.id);
+  console.log('🔌 User connected:', socket.id);
 
   socket.on('createRoom', ({ username }) => {
     const roomId = Math.random().toString(36).substring(2, 7).toUpperCase();
@@ -34,30 +34,31 @@ io.on('connection', (socket) => {
     };
     socket.join(roomId);
     socket.emit('roomCreated', { roomId, symbol: 'X' });
-    console.log(`${username} created room: ${roomId}`);
+    console.log(`✅ Room created: ${roomId} by ${username}`);
   });
 
   socket.on('joinRoom', ({ roomId, username }) => {
     const room = rooms[roomId];
-    if (room) {
-      if (room.players.length < 2) {
-        room.players.push({ id: socket.id, symbol: 'O', username });
-        socket.join(roomId);
-        socket.emit('roomJoined', { roomId, symbol: 'O' });
-
-        io.to(roomId).emit('gameUpdate', {
-          board: room.board,
-          turn: room.turn,
-          winner: room.winner,
-        });
-
-        console.log(`${username} joined room: ${roomId}`);
-      } else {
-        socket.emit('error', 'Room is full');
-      }
-    } else {
-      socket.emit('error', 'Room not found');
+    if (!room) {
+      socket.emit('roomError', 'Room not found');
+      return;
     }
+    if (room.players.length >= 2) {
+      socket.emit('roomError', 'Room is full');
+      return;
+    }
+
+    room.players.push({ id: socket.id, symbol: 'O', username });
+    socket.join(roomId);
+    socket.emit('roomJoined', { roomId, symbol: 'O' });
+
+    io.to(roomId).emit('gameUpdate', {
+      board: room.board,
+      turn: room.turn,
+      winner: room.winner,
+    });
+
+    console.log(`👤 ${username} joined room: ${roomId}`);
   });
 
   socket.on('makeMove', ({ roomId, index, symbol }) => {
@@ -109,12 +110,12 @@ io.on('connection', (socket) => {
         timestamp: new Date().toISOString(),
       });
 
-      console.log(`Game restarted in room: ${roomId}`);
+      console.log(`♻️ Game restarted in room: ${roomId}`);
     }
   });
 
   socket.on('disconnect', () => {
-    console.log('User disconnected:', socket.id);
+    console.log('❌ User disconnected:', socket.id);
 
     for (const roomId in rooms) {
       const room = rooms[roomId];
@@ -124,7 +125,7 @@ io.on('connection', (socket) => {
 
       if (room.players.length === 0) {
         delete rooms[roomId];
-        console.log('Room deleted:', roomId);
+        console.log(`🗑️ Room deleted: ${roomId}`);
       } else if (room.players.length < initialLength) {
         io.to(roomId).emit('receiveMessage', {
           message: 'A player has left the game.',
@@ -151,12 +152,11 @@ function checkWinner(board) {
     }
   }
 
-  if (board.every(cell => cell !== null)) return 'draw';
-  return null;
+  return board.every(cell => cell !== null) ? 'draw' : null;
 }
 
 // Start server
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
