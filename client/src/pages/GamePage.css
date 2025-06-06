@@ -67,8 +67,24 @@
   font-size: 45px;
 }
 }
+@media screen and (max-width:1000px) {
+  .gamepage-container {
+  padding-top: 80px;
+}
+}
+/* @media screen and (max-width:375px) {
+  .gamepage-container {
+  padding-top: 80px;
+}
+}
 @media screen and (max-width:360px) {
   .gamepage-container {
   padding-top: 70px;
 }
 }
+
+@media screen and (max-width:320px) {
+  .gamepage-container {
+  padding-top: 80px;
+}
+} */
